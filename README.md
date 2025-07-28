@@ -26,9 +26,9 @@ A **Retrieval-Augmented Generation (RAG)** chatbot that can answer questions abo
 ![Upload Page](screenshots/HomePage.png)
 
 ### 💬 Chat Interface
-![Chat Page](screenshots/chats.png)
+![Chat Page](screenshots/Chats.png)
 
 ### 📘 About Page
-![About Page](screenshots/about.png)
+![About Page](screenshots/About.png)
 
 ---
