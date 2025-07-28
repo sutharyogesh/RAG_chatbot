@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Dataset - Loan Chatbot</title>
+</head>
+<body>
+    <h2>Upload Your Dataset</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload & Continue</button>
+    </form>
+    <br>
+    <a href="/chat">Use Default Dataset Instead</a>
+</body>
+</html>
