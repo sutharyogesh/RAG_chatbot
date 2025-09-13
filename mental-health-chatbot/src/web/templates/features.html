@@ -1,0 +1,388 @@
+{% extends "base.html" %}
+
+{% block title %}Key Features - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold mb-4">Key Features</h1>
+        <p class="lead text-muted">
+            Discover the comprehensive features that make our mental health chatbot your perfect wellness companion.
+        </p>
+    </div>
+    
+    <!-- Main Features Grid -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-robot fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="card-title">AI-Powered Conversations</h4>
+                    <p class="card-text">
+                        Engage in natural, empathetic conversations with our advanced AI chatbot that understands context, 
+                        emotions, and provides meaningful support tailored to your needs.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> Natural language processing</li>
+                        <li><i class="fas fa-check text-success"></i> Context-aware responses</li>
+                        <li><i class="fas fa-check text-success"></i> Empathetic communication</li>
+                        <li><i class="fas fa-check text-success"></i> 24/7 availability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-chart-line fa-3x text-success"></i>
+                    </div>
+                    <h4 class="card-title">Mood Tracking & Analytics</h4>
+                    <p class="card-text">
+                        Track your daily mood, activities, and mental health metrics with interactive charts and 
+                        personalized insights to understand your patterns and progress.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> Daily mood logging</li>
+                        <li><i class="fas fa-check text-success"></i> Interactive visualizations</li>
+                        <li><i class="fas fa-check text-success"></i> Trend analysis</li>
+                        <li><i class="fas fa-check text-success"></i> Progress tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-clipboard-check fa-3x text-info"></i>
+                    </div>
+                    <h4 class="card-title">Mental Health Assessments</h4>
+                    <p class="card-text">
+                        Take scientifically validated assessments like PHQ-9 for depression and GAD-7 for anxiety 
+                        to understand your mental health status and get personalized recommendations.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> PHQ-9 Depression Scale</li>
+                        <li><i class="fas fa-check text-success"></i> GAD-7 Anxiety Scale</li>
+                        <li><i class="fas fa-check text-success"></i> Custom assessments</li>
+                        <li><i class="fas fa-check text-success"></i> Instant results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-lightbulb fa-3x text-warning"></i>
+                    </div>
+                    <h4 class="card-title">Personalized Recommendations</h4>
+                    <p class="card-text">
+                        Receive tailored coping strategies, activities, and resources based on your unique needs, 
+                        preferences, and current mental health status.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> Customized suggestions</li>
+                        <li><i class="fas fa-check text-success"></i> Coping strategies</li>
+                        <li><i class="fas fa-check text-success"></i> Activity recommendations</li>
+                        <li><i class="fas fa-check text-success"></i> Resource library</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-shield-alt fa-3x text-danger"></i>
+                    </div>
+                    <h4 class="card-title">Privacy & Security</h4>
+                    <p class="card-text">
+                        Your data is protected with enterprise-grade security. Anonymous chat option available 
+                        for complete privacy, and all conversations are encrypted.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> End-to-end encryption</li>
+                        <li><i class="fas fa-check text-success"></i> Anonymous chat mode</li>
+                        <li><i class="fas fa-check text-success"></i> GDPR compliance</li>
+                        <li><i class="fas fa-check text-success"></i> Secure data storage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 feature-card">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-mobile-alt fa-3x text-secondary"></i>
+                    </div>
+                    <h4 class="card-title">Mobile Responsive</h4>
+                    <p class="card-text">
+                        Access your mental health support anywhere, anytime with our responsive design that works 
+                        seamlessly on all devices - desktop, tablet, and mobile.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success"></i> Responsive design</li>
+                        <li><i class="fas fa-check text-success"></i> Mobile-optimized</li>
+                        <li><i class="fas fa-check text-success"></i> Cross-platform</li>
+                        <li><i class="fas fa-check text-success"></i> Touch-friendly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Advanced Features Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-5">Advanced Features</h2>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-brain fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Sentiment Analysis</h4>
+                            <p class="text-muted">
+                                Advanced AI analyzes your emotional state in real-time, providing insights into your mood patterns 
+                                and helping identify when you might need additional support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-trophy fa-2x text-warning"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Gamification</h4>
+                            <p class="text-muted">
+                                Stay motivated with streaks, badges, and achievement tracking that celebrates your progress 
+                                and encourages consistent engagement with your mental health journey.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-bell fa-2x text-info"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Smart Reminders</h4>
+                            <p class="text-muted">
+                                Get personalized reminders for mood check-ins, assessment schedules, and recommended activities 
+                                to help you maintain consistent mental health practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-download fa-2x text-success"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Data Export</h4>
+                            <p class="text-muted">
+                                Export your chat history, mood data, and assessment results in CSV or PDF format to share 
+                                with healthcare providers or keep for your personal records.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Crisis Support Section -->
+    <div class="card mb-5 border-danger">
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="text-danger mb-2">
+                        <i class="fas fa-exclamation-triangle"></i> Crisis Support
+                    </h4>
+                    <p class="mb-0">
+                        If you're experiencing a mental health crisis, our chatbot can detect crisis indicators and 
+                        immediately provide emergency resources and support contacts.
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="crisis-contacts">
+                        <p class="mb-1"><strong>988</strong> - Suicide Prevention Lifeline</p>
+                        <p class="mb-1"><strong>741741</strong> - Crisis Text Line</p>
+                        <p class="mb-0"><strong>911</strong> - Emergency Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technology Stack -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-5">Powered by Advanced Technology</h2>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="text-center">
+                <i class="fab fa-python fa-3x text-primary mb-3"></i>
+                <h5>Python 3.11</h5>
+                <p class="text-muted">Robust backend framework</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="text-center">
+                <i class="fas fa-brain fa-3x text-success mb-3"></i>
+                <h5>OpenAI GPT-4</h5>
+                <p class="text-muted">Advanced AI conversations</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="text-center">
+                <i class="fas fa-database fa-3x text-info mb-3"></i>
+                <h5>Pinecone Vector DB</h5>
+                <p class="text-muted">Semantic search capabilities</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="text-center">
+                <i class="fab fa-html5 fa-3x text-warning mb-3"></i>
+                <h5>Modern Web Stack</h5>
+                <p class="text-muted">Responsive & accessible</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="text-center">
+        <h2 class="mb-4">Ready to Experience These Features?</h2>
+        <p class="lead mb-4">
+            Join thousands of users who have found support and guidance through our comprehensive platform.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('chat.index') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-comments"></i> Start Chatting
+                </a>
+                <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-chart-line"></i> View Dashboard
+                </a>
+            {% else %}
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-user-plus"></i> Get Started Free
+                </a>
+                <a href="{{ url_for('chat.anonymous_chat') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-eye-slash"></i> Try Anonymous Chat
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.crisis-contacts {
+    background-color: rgba(220, 53, 69, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.list-unstyled li {
+    padding: 0.25rem 0;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+/* Animation for feature cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-card {
+        margin-bottom: 1rem;
+    }
+    
+    .crisis-contacts {
+        margin-top: 1rem;
+        text-align: left !important;
+    }
+}
+</style>
+{% endblock %}
