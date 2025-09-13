@@ -1,0 +1,262 @@
+/* Dark Theme CSS */
+
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #808080;
+    --border-color: #404040;
+    --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: var(--shadow);
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-control {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-control:focus {
+    background-color: var(--bg-secondary);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.input-group-text {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.table {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.table thead th {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.modal-content {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.modal-header {
+    border-color: var(--border-color);
+}
+
+.modal-footer {
+    border-color: var(--border-color);
+}
+
+.alert {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.dropdown-item {
+    color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.border {
+    border-color: var(--border-color) !important;
+}
+
+.border-top {
+    border-top-color: var(--border-color) !important;
+}
+
+.border-bottom {
+    border-bottom-color: var(--border-color) !important;
+}
+
+.border-start {
+    border-left-color: var(--border-color) !important;
+}
+
+.border-end {
+    border-right-color: var(--border-color) !important;
+}
+
+/* Chat specific styles */
+.chat-messages {
+    background-color: var(--bg-primary);
+}
+
+.message.bot .message-content {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.message.user .message-content {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.typing-indicator {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.chat-sidebar {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+.stat-item {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.resource-link:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.assessment-question {
+    background-color: var(--bg-tertiary);
+}
+
+.recommendation-item {
+    background-color: var(--bg-tertiary);
+    border-color: var(--primary-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Override Bootstrap dark mode classes */
+.bg-dark {
+    background-color: var(--bg-primary) !important;
+}
+
+.text-white {
+    color: var(--text-primary) !important;
+}
+
+/* Specific component overrides for dark theme */
+.btn-outline-light {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Form validation in dark mode */
+.was-validated .form-control:valid {
+    border-color: var(--success-color);
+    background-color: var(--bg-secondary);
+}
+
+.was-validated .form-control:invalid {
+    border-color: var(--danger-color);
+    background-color: var(--bg-secondary);
+}
+
+/* Custom dark mode utilities */
+.text-dark {
+    color: var(--text-primary) !important;
+}
+
+.bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Code blocks in dark mode */
+pre, code {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+/* Links in dark mode */
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: #66b3ff;
+}
+
+/* Focus states for accessibility */
+.form-control:focus,
+.btn:focus,
+.nav-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    :root {
+        --bg-primary: #000000;
+        --bg-secondary: #1a1a1a;
+        --bg-tertiary: #333333;
+        --text-primary: #ffffff;
+        --text-secondary: #ffffff;
+        --text-muted: #cccccc;
+        --border-color: #666666;
+    }
+}

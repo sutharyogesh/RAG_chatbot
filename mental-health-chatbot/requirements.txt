@@ -1,0 +1,70 @@
+# Core Framework
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Login==0.6.3
+Flask-JWT-Extended==4.5.3
+Flask-Migrate==4.0.5
+Flask-CORS==4.0.0
+Flask-Mail==0.9.1
+
+# Database
+SQLAlchemy==2.0.21
+psycopg2-binary==2.9.7
+alembic==1.12.0
+
+# AI/NLP
+openai==1.3.0
+transformers==4.35.0
+torch==2.1.0
+spacy==3.7.2
+nltk==3.8.1
+textblob==0.17.1
+
+# Machine Learning
+scikit-learn==1.3.2
+tensorflow==2.15.0
+keras==2.15.0
+pandas==2.1.3
+numpy==1.24.3
+
+# Vector Database
+pinecone-client==2.2.4
+
+# Data Visualization
+plotly==5.17.0
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Web Development
+Werkzeug==2.3.7
+Jinja2==3.1.2
+WTForms==3.1.0
+Flask-WTF==1.2.1
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+Pillow==10.1.0
+reportlab==4.0.7
+openpyxl==3.1.2
+python-dateutil==2.8.2
+
+# Testing
+pytest==7.4.3
+pytest-flask==1.3.0
+pytest-cov==4.1.0
+factory-boy==3.3.0
+
+# Security
+cryptography==41.0.7
+bcrypt==4.1.2
+PyJWT==2.8.0
+
+# Development
+black==23.11.0
+flake8==6.1.0
+isort==5.12.0
+
+# Deployment
+gunicorn==21.2.0
+whitenoise==6.6.0

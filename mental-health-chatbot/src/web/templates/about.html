@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - {{ app_name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- Hero Section -->
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold mb-4">About Our Mission</h1>
+                <p class="lead text-muted">
+                    We believe that mental health support should be accessible, personalized, and available 24/7. 
+                    Our AI-powered chatbot is designed to provide compassionate care when you need it most.
+                </p>
+            </div>
+            
+            <!-- Mission Statement -->
+            <div class="card mb-5">
+                <div class="card-body p-5">
+                    <h2 class="card-title text-center mb-4">
+                        <i class="fas fa-heart text-primary"></i> Our Mission
+                    </h2>
+                    <p class="card-text text-center lead">
+                        To provide accessible, empathetic, and effective mental health support through 
+                        advanced AI technology, helping individuals on their journey to better mental wellness.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div class="mb-5">
+                <h2 class="text-center mb-5">Meet Our Team</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <div class="team-avatar mb-3">
+                                    <i class="fas fa-user-circle fa-4x text-primary"></i>
+                                </div>
+                                <h5 class="card-title">Yash</h5>
+                                <p class="text-muted">NLP/AI Specialist</p>
+                                <p class="card-text small">
+                                    Expert in OpenAI GPT API integration, sentiment analysis, and natural language processing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <div class="team-avatar mb-3">
+                                    <i class="fas fa-user-circle fa-4x text-success"></i>
+                                </div>
+                                <h5 class="card-title">Suhani</h5>
+                                <p class="text-muted">Machine Learning Engineer</p>
+                                <p class="card-text small">
+                                    Specializes in mental health classification models and personalized recommendation systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <div class="team-avatar mb-3">
+                                    <i class="fas fa-user-circle fa-4x text-info"></i>
+                                </div>
+                                <h5 class="card-title">Shiksha</h5>
+                                <p class="text-muted">Database Specialist</p>
+                                <p class="card-text small">
+                                    Manages Pinecone vector database and PostgreSQL systems for secure data storage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <div class="team-avatar mb-3">
+                                    <i class="fas fa-user-circle fa-4x text-warning"></i>
+                                </div>
+                                <h5 class="card-title">Yogesh</h5>
+                                <p class="text-muted">Full-Stack Developer</p>
+                                <p class="card-text small">
+                                    Develops Flask backend, responsive frontend, and ensures seamless user experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technology Stack -->
+            <div class="mb-5">
+                <h2 class="text-center mb-5">Technology Stack</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                                <h5>AI & NLP</h5>
+                                <ul class="list-unstyled">
+                                    <li>OpenAI GPT-4</li>
+                                    <li>HuggingFace Transformers</li>
+                                    <li>SpaCy</li>
+                                    <li>TextBlob</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fas fa-database fa-3x text-success mb-3"></i>
+                                <h5>Data & ML</h5>
+                                <ul class="list-unstyled">
+                                    <li>Pinecone Vector DB</li>
+                                    <li>PostgreSQL</li>
+                                    <li>Scikit-learn</li>
+                                    <li>TensorFlow/Keras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card text-center h-100">
+                            <div class="card-body">
+                                <i class="fas fa-code fa-3x text-info mb-3"></i>
+                                <h5>Web Development</h5>
+                                <ul class="list-unstyled">
+                                    <li>Flask</li>
+                                    <li>HTML5/CSS3/JS</li>
+                                    <li>Bootstrap 5</li>
+                                    <li>Plotly</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features Overview -->
+            <div class="mb-5">
+                <h2 class="text-center mb-5">Key Features</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-comments fa-2x text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Empathetic Conversations</h5>
+                                <p>AI-powered chatbot that provides natural, understanding responses to your mental health concerns.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chart-line fa-2x text-success"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Mood Tracking</h5>
+                                <p>Track your daily mood, activities, and mental health metrics with interactive visualizations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clipboard-check fa-2x text-info"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Mental Health Assessments</h5>
+                                <p>Scientifically validated assessments like PHQ-9 and GAD-7 to understand your mental health status.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-shield-alt fa-2x text-warning"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Privacy & Security</h5>
+                                <p>Your data is protected with enterprise-grade security. Anonymous chat option available.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Values -->
+            <div class="card mb-5">
+                <div class="card-body p-5">
+                    <h2 class="card-title text-center mb-4">Our Values</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                            <h5>Empathy</h5>
+                            <p>We approach every interaction with compassion and understanding.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                            <h5>Privacy</h5>
+                            <p>Your personal information and conversations are kept completely confidential.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-users fa-3x text-success mb-3"></i>
+                            <h5>Accessibility</h5>
+                            <p>Mental health support should be available to everyone, everywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center">
+                <h2 class="mb-4">Ready to Start Your Journey?</h2>
+                <p class="lead mb-4">
+                    Join thousands of users who have found support and guidance through our platform.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('chat.index') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-comments"></i> Continue Chatting
+                        </a>
+                        <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-chart-line"></i> View Dashboard
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus"></i> Get Started
+                        </a>
+                        <a href="{{ url_for('chat.anonymous_chat') }}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-eye-slash"></i> Try Anonymous Chat
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.team-avatar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+</style>
+{% endblock %}

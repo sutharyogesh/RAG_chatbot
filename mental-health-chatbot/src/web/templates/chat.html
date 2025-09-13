@@ -1,0 +1,421 @@
+{% extends "base.html" %}
+
+{% block title %}Chat - {{ app_name }}{% endblock %}
+
+{% block main_class %}chat-page{% endblock %}
+
+{% block content %}
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <!-- Chat Interface -->
+        <div class="col-12 col-lg-8">
+            <div class="chat-container d-flex flex-column h-100">
+                <!-- Chat Header -->
+                <div class="chat-header bg-primary text-white p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">
+                                <i class="fas fa-robot"></i> Mental Health Assistant
+                            </h5>
+                            <small id="connection-status" class="text-light">
+                                <i class="fas fa-circle text-success"></i> Connected
+                            </small>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-light btn-sm" id="clear-chat" title="Clear Chat">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button class="btn btn-outline-light btn-sm" id="export-chat" title="Export Chat">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="btn btn-outline-light btn-sm" id="toggle-theme" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Messages -->
+                <div class="chat-messages flex-grow-1 p-3" id="chat-messages">
+                    <div class="welcome-message text-center text-muted py-5">
+                        <i class="fas fa-heart fa-3x mb-3 text-primary"></i>
+                        <h4>Welcome to your Mental Health Support Chat</h4>
+                        <p>I'm here to listen, support, and help you on your wellness journey.</p>
+                        <p>You can talk to me about anything - your feelings, concerns, or just need someone to listen.</p>
+                        <div class="mt-4">
+                            <button class="btn btn-primary me-2" id="start-assessment">
+                                <i class="fas fa-clipboard-check"></i> Take Assessment
+                            </button>
+                            <button class="btn btn-outline-primary" id="get-recommendations">
+                                <i class="fas fa-lightbulb"></i> Get Recommendations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Input -->
+                <div class="chat-input p-3 bg-light border-top">
+                    <form id="chat-form" class="d-flex gap-2">
+                        <div class="flex-grow-1">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="message-input" 
+                                       placeholder="Type your message here..." autocomplete="off">
+                                <button class="btn btn-outline-secondary" type="button" id="voice-input" title="Voice Input">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="send-button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <!-- Quick Actions -->
+                    <div class="quick-actions mt-2 d-flex gap-2 flex-wrap">
+                        <button class="btn btn-sm btn-outline-secondary quick-action" data-action="mood">
+                            <i class="fas fa-smile"></i> How are you feeling?
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary quick-action" data-action="stress">
+                            <i class="fas fa-exclamation-triangle"></i> I'm stressed
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary quick-action" data-action="help">
+                            <i class="fas fa-question-circle"></i> I need help
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary quick-action" data-action="crisis">
+                            <i class="fas fa-phone"></i> Crisis support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-12 col-lg-4 d-none d-lg-block">
+            <div class="chat-sidebar h-100 bg-light border-start">
+                <!-- User Info -->
+                <div class="p-3 border-bottom">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar me-3">
+                            <i class="fas fa-user-circle fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">
+                                {% if current_user.is_authenticated %}
+                                    {{ current_user.username }}
+                                {% else %}
+                                    Anonymous User
+                                {% endif %}
+                            </h6>
+                            <small class="text-muted">Mental Health Support</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mood Tracker -->
+                <div class="p-3 border-bottom">
+                    <h6 class="mb-3">
+                        <i class="fas fa-chart-line"></i> Today's Mood
+                    </h6>
+                    <div class="mood-tracker">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>How are you feeling?</span>
+                            <span id="mood-score">-</span>
+                        </div>
+                        <div class="mood-slider">
+                            <input type="range" class="form-range" id="mood-slider" min="1" max="10" value="5">
+                            <div class="d-flex justify-content-between">
+                                <small>😢</small>
+                                <small>😐</small>
+                                <small>😊</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-100 mt-2" id="save-mood">
+                            <i class="fas fa-save"></i> Save Mood
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="p-3 border-bottom">
+                    <h6 class="mb-3">
+                        <i class="fas fa-chart-bar"></i> Quick Stats
+                    </h6>
+                    <div class="stats-grid">
+                        <div class="stat-item text-center">
+                            <div class="stat-value" id="messages-count">0</div>
+                            <div class="stat-label">Messages</div>
+                        </div>
+                        <div class="stat-item text-center">
+                            <div class="stat-value" id="session-duration">0m</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="p-3">
+                    <h6 class="mb-3">
+                        <i class="fas fa-bookmark"></i> Resources
+                    </h6>
+                    <div class="resource-links">
+                        <a href="#" class="resource-link d-block mb-2 text-decoration-none">
+                            <i class="fas fa-phone text-danger"></i> Crisis Hotline: 988
+                        </a>
+                        <a href="#" class="resource-link d-block mb-2 text-decoration-none">
+                            <i class="fas fa-sms text-info"></i> Crisis Text: 741741
+                        </a>
+                        <a href="#" class="resource-link d-block mb-2 text-decoration-none">
+                            <i class="fas fa-globe text-success"></i> Mental Health Resources
+                        </a>
+                        <a href="#" class="resource-link d-block text-decoration-none">
+                            <i class="fas fa-download text-primary"></i> Export Chat History
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Assessment Modal -->
+<div class="modal fade" id="assessmentModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-clipboard-check"></i> Mental Health Assessment
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="assessment-content">
+                    <!-- Assessment questions will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="submit-assessment">Submit Assessment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recommendations Modal -->
+<div class="modal fade" id="recommendationsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-lightbulb"></i> Personalized Recommendations
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="recommendations-content">
+                    <!-- Recommendations will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.chat-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chat-container {
+    height: calc(100vh - 56px);
+}
+
+.chat-messages {
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 1rem;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.message.user {
+    text-align: right;
+}
+
+.message.bot {
+    text-align: left;
+}
+
+.message-content {
+    display: inline-block;
+    max-width: 70%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    word-wrap: break-word;
+}
+
+.message.user .message-content {
+    background-color: #007bff;
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.message.bot .message-content {
+    background-color: white;
+    color: #333;
+    border: 1px solid #dee2e6;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.typing-indicator {
+    display: none;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    border-bottom-left-radius: 0.25rem;
+    max-width: 70%;
+}
+
+.typing-dots {
+    display: inline-block;
+}
+
+.typing-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #6c757d;
+    margin: 0 2px;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-sidebar {
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.mood-slider {
+    margin: 0.5rem 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.resource-link {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.resource-link:hover {
+    background-color: #e9ecef;
+}
+
+.quick-actions {
+    margin-top: 0.5rem;
+}
+
+.quick-action {
+    font-size: 0.875rem;
+}
+
+.assessment-question {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.assessment-options {
+    margin-top: 1rem;
+}
+
+.assessment-option {
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    border-left: 4px solid #007bff;
+}
+
+.recommendation-priority {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.priority-1 { background-color: #dc3545; color: white; }
+.priority-2 { background-color: #fd7e14; color: white; }
+.priority-3 { background-color: #ffc107; color: black; }
+.priority-4 { background-color: #28a745; color: white; }
+.priority-5 { background-color: #6c757d; color: white; }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+<script>
+// Initialize chat when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize chat functionality
+    if (typeof ChatInterface !== 'undefined') {
+        const chatInterface = new ChatInterface({
+            anonymous: {{ 'true' if anonymous else 'false' }},
+            sessionId: null // Will be set when session starts
+        });
+    }
+});
+</script>
+{% endblock %}

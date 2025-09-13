@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Register - {{ app_name }}{% endblock %}
+
+{% block main_class %}auth-page{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                        <h2 class="fw-bold">Create Account</h2>
+                        <p class="text-muted">Join our mental health support community</p>
+                    </div>
+                    
+                    <form method="POST" id="registerForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="first_name" class="form-label">First Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" 
+                                           placeholder="Enter first name">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" 
+                                           placeholder="Enter last name">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-at"></i>
+                                </span>
+                                <input type="text" class="form-control" id="username" name="username" 
+                                       placeholder="Choose a username" required>
+                            </div>
+                            <div class="form-text">3-20 characters, letters, numbers, and underscores only</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       placeholder="Enter email address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" class="form-control" id="password" name="password" 
+                                       placeholder="Create a password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">
+                                Must be at least 8 characters with uppercase, lowercase, number, and special character
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" 
+                                       placeholder="Confirm your password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> 
+                                and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus"></i> Create Account
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="text-center">
+                        <p class="mb-0">Already have an account?</p>
+                        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </a>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Or try without signing up</p>
+                        <a href="{{ url_for('chat.anonymous_chat') }}" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-eye-slash"></i> Anonymous Chat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle password visibility
+    const togglePassword = document.getElementById('togglePassword');
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm_password');
+    
+    togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+    
+    toggleConfirmPassword.addEventListener('click', function() {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+        
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+    
+    // Form validation
+    const form = document.getElementById('registerForm');
+    form.addEventListener('submit', function(e) {
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        const terms = document.getElementById('terms').checked;
+        
+        // Basic validation
+        if (!username || !email || !password || !confirmPassword) {
+            e.preventDefault();
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('Passwords do not match');
+            return;
+        }
+        
+        if (!terms) {
+            e.preventDefault();
+            alert('Please agree to the Terms of Service and Privacy Policy');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+        submitBtn.disabled = true;
+    });
+    
+    // Real-time password validation
+    const passwordField = document.getElementById('password');
+    passwordField.addEventListener('input', function() {
+        const password = this.value;
+        const requirements = {
+            length: password.length >= 8,
+            uppercase: /[A-Z]/.test(password),
+            lowercase: /[a-z]/.test(password),
+            number: /\d/.test(password),
+            special: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+        };
+        
+        // Update UI based on requirements
+        updatePasswordRequirements(requirements);
+    });
+    
+    function updatePasswordRequirements(requirements) {
+        // This would update visual indicators for password requirements
+        // Implementation depends on specific UI requirements
+    }
+});
+</script>
+{% endblock %}
